@@ -25,23 +25,6 @@ services:
         max-size: "100MB"
         max-file: "3"
 
-  nginx:
-    image: nginx:1.16.1
-    depends_on:
-      - server
-    networks:
-      - backend
-    volumes:
-      - ./server/public:/home/node/nicelinks/public/
-      - ./nginx/default.conf:/etc/nginx/conf.d/nicelinks.conf
-    ports:
-      - "8888:8888"
-    logging:
-      driver: "json-file"
-      options:
-        max-size: "100MB"
-        max-file: "3"
-
   mongodb:
     image: mongo:4.1.3
     ports:
@@ -57,7 +40,7 @@ services:
         max-file: "3"
 
   redis:
-    image: redis:5.0.6
+    image: redis:4.0.11
     ports:
       - "6379:6379"
     networks:
