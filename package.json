@@ -1,0 +1,29 @@
+{
+  "name": "nicelinks.site",
+  "version": "1.0.0",
+  "description": "倾城之链，旨在云集全球优秀网站，方便你我探索互联网中更广阔的世界。",
+  "main": "index.js",
+  "scripts": {
+    "deploy": "docker-compose down && docker-compose up",
+    "commit": "git add . && git commit -a && git push"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nicejade/nicelinks.site.git"
+  },
+  "keywords": [
+    "nicelinks",
+    "docker",
+    "vue",
+    "node",
+    "nginx",
+    "mongodb",
+    "redis"
+  ],
+  "author": "nicejade",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nicejade/nicelinks.site/issues"
+  },
+  "homepage": "https://github.com/nicejade/nicelinks.site#readme"
+}
