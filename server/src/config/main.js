@@ -7,7 +7,7 @@ let config = {
   'secret': 'super secret passphrase',
 
   // Database connection information
-  'database': 'mongodb://localhost:27017/nice_links',
+  'database': 'mongodb://mongodb:27017/nice_links',
 
   // Setting port for server
   'port': process.env.PORT || 4000,
