@@ -1,11 +1,11 @@
 module.exports = {
     client: {
-        "host": "redis",
+        "host": "127.0.0.1",
         "port": 6379,
         "db": 0
     },
     session: {
-        "host": "redis",
+        "host": "127.0.0.1",
         "port": 6379,
         "db": 2
     }
