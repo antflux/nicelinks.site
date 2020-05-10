@@ -19,6 +19,19 @@ const requestAllNiceLinks = () => {
   })
 }
 
+const waitForTimeout = (delay) => {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      try {
+        resolve(true)
+      } catch (e) {
+        reject(false)
+      }
+    }, delay)
+  })
+}
+
 module.exports = {
+  waitForTimeout,
   requestAllNiceLinks
 }
