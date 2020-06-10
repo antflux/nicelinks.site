@@ -21,10 +21,10 @@ let typeList = {
   }
 }
 
-let mailTemp = fs.readFileSync(path.join(__dirname, './../../views/mailTemp.html'),{encoding:'utf-8'})
+let activeEmailTemp = fs.readFileSync(path.join(__dirname, './../../views/active.html'),{encoding:'utf-8'})
 
 let sendMail = (params = {}) => {
-  const htmlBody = mailTemp
+  const htmlBody = activeEmailTemp
     .replace('#DESC#', typeList[params.type].desc)
     .replace('#BUTTON#', typeList[params.type].button)
     .replace('#LINK#', params.link)
