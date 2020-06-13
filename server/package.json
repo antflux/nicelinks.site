@@ -12,10 +12,9 @@
     "compile": "babel src/ --out-dir app/ --retain-lines --source-maps",
     "clean": "rm -rf app/",
     "test": "mocha -u bdd --compilers js:babel-core/register",
-    "commit": "git add . && git commit -m 'update static 😊' && git push",
-    "server": "npm i && npm run clean && npm run compile && npm run production",
-    "deploy": "git pull && npm run clean && npm run compile && cross-env NODE_ENV=production pm2 start app/index.js --name 'nicelinks'",
-    "redeploy": "git pull && npm run clean && npm run compile && cross-env NODE_ENV=production pm2 restart app/index.js --name 'nicelinks'"
+    "commit": "git add . && git commit -m '✨ update static flie' && git push",
+    "deploy": "git pull && cross-env NODE_ENV=production pm2 start src/index.js --name 'nicelinks'",
+    "redeploy": "git pull && cross-env NODE_ENV=production pm2 restart src/index.js --name 'nicelinks'"
   },
   "dependencies": {
     "axios": "^0.19.0",
