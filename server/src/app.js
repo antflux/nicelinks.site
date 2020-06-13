@@ -2,9 +2,13 @@ let http = require('http')
 let Koa = require('koa')
 let koaOnError = require('koa-onerror')
 let logger = require('./helper/logger')
+let sendPushEmailRegularly = require('./helper/schedule')
 
 let applyMiddleware = require('./middlewares').applyMiddleware
 let config = require('./config')
+
+// 定时为用户发送最新站点推荐邮件；
+sendPushEmailRegularly()
 
 const app = new Koa()
 applyMiddleware(app)

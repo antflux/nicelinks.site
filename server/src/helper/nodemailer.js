@@ -48,7 +48,7 @@ let sendMail = (params = {}) => {
     from    : params.from || `倾城之链<${authConf.account}>`,
     to      : params.to || '<1259134802@qq.com>',
     subject : subject,
-    html    : htmlBody || 'https://jeffjade.com'
+    html    : htmlBody || 'https://www.jeffjade.com'
   }, function(err, res) {
       if (err) {
         console.log(err, res)
