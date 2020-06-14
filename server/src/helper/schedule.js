@@ -40,7 +40,7 @@ const getAllUserInfoList = (isFullRelease = false) => {
   return new Promise((resolve, reject) => {
     return UserModel.find({ active: true })
       .sort({ created: -1 })
-      .limit(isFullRelease ? 99999 : 5)
+      .limit(isFullRelease ? 999999 : 5)
       .exec().then((result) => {
         resolve(result)
       })
@@ -107,7 +107,7 @@ const sendEmail2User = async (params = {}) => {
 // 执行发送推送邮件任务；
 const execSendEmailTask = async() => {
   // 控制，是否全量发布；(否，只取前 5 位用户发送)
-  const isFullRelease = false
+  const isFullRelease = true
   const allUserList = await getAllUserInfoList(isFullRelease)
   if (!allUserList || !Array.isArray(allUserList)) return
 
@@ -121,7 +121,7 @@ const execSendEmailTask = async() => {
 
 const sendPushEmailRegularly = () => {
   // 自定发送邮件，每周五上午 7:30 执行一次；
-  schedule.scheduleJob('0 0 23 * * 6', async () => {
+  schedule.scheduleJob('0 30 11 * * 7', async () => {
     try {
       execSendEmailTask()
     } catch (err) {
