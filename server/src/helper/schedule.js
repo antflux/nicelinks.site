@@ -1,6 +1,6 @@
 const path = require('path')
 const fs = require("fs")
-const nodemailer  = require("nodemailer")
+const nodemailer = require("nodemailer")
 const schedule = require('node-schedule')
 
 let { Links, UserModel } = require('./../models/index')
@@ -22,7 +22,7 @@ const waitForTimeout = (delay) => {
 }
 
 // 获取字符串实际长度(包含汉字,汉字统一按照 2 字节算;)
-const getByteLength  = (str = '') => {
+const getByteLength = (str = '') => {
   if (typeof str !== 'string') return str.length
   return str.replace(/[^\x00-\xff]/g, 'aa').length
 }
@@ -54,8 +54,8 @@ const getLatestPostedLinkList = async () => {
       .sort({ created: -1 })
       .limit(6)
       .then((result) => {
-			return resolve(result)
-		})
+        return resolve(result)
+      })
   })
 }
 
@@ -66,9 +66,9 @@ const generateEmailContent = async () => {
   latestPostedLinkList.forEach((item, index) => {
     const linkDesc = interceptString(item.desc)
     emailContent = emailContent
-      .replace(`#HREF-${index+1}#`, `https://nicelinks.site/post/${item._id}`)
-      .replace(`#TITLE-${index+1}#`, item.title)
-      .replace(`#DESC-${index+1}#`, linkDesc)
+      .replace(`#HREF-${index + 1}#`, `https://nicelinks.site/post/${item._id}`)
+      .replace(`#TITLE-${index + 1}#`, item.title)
+      .replace(`#DESC-${index + 1}#`, linkDesc)
   })
   return emailContent
 }
@@ -80,7 +80,7 @@ const sendEmail2User = async (params = {}) => {
   // 对于是使用“QQ”邮箱注册用户，则使用"QQ"邮箱发送激活邮件；其他则 163 邮箱；
   const isQQRegister = params.to.indexOf('@qq.com') > -1
   const authConf = isQQRegister ? secretConf.email_qq : secretConf.email_163
-  
+
   const smtpTransporter = nodemailer.createTransport({
     host: isQQRegister ? 'smtp.qq.com' : 'smtp.163.com',
     secure: true,
@@ -91,21 +91,21 @@ const sendEmail2User = async (params = {}) => {
   })
 
   smtpTransporter.sendMail({
-    from    : params.from || `倾城之链<${authConf.account}>`,
-    to      : params.to || '<1259134802@qq.com>',
-    subject : '倾城之链 NICE LINKS',
-    html    : emailContent || 'https://www.jeffjade.com'
-  }, function(err, res) {
-      if (err) {
-        console.log(err, res)
-      } else {
-        params.callback && params.callback()
-      }
+    from: params.from || `倾城之链<${authConf.account}>`,
+    to: params.to || '<1259134802@qq.com>',
+    subject: '倾城之链 NICE LINKS',
+    html: emailContent || 'https://www.jeffjade.com'
+  }, function (err, res) {
+    if (err) {
+      console.log(err, res)
+    } else {
+      params.callback && params.callback()
+    }
   })
 }
 
 // 执行发送推送邮件任务；
-const execSendEmailTask = async() => {
+const execSendEmailTask = async () => {
   // 控制，是否全量发布；(否，只取前 5 位用户发送)
   const isFullRelease = true
   const allUserList = await getAllUserInfoList(isFullRelease)
@@ -121,7 +121,7 @@ const execSendEmailTask = async() => {
 
 const sendPushEmailRegularly = () => {
   // 自定发送邮件，每周五上午 7:30 执行一次；
-  schedule.scheduleJob('0 30 11 * * 7', async () => {
+  schedule.scheduleJob('0 20 8 * * 0', async () => {
     try {
       execSendEmailTask()
     } catch (err) {
