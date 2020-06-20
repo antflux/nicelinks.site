@@ -121,7 +121,7 @@ const execSendEmailTask = async () => {
 
 const sendPushEmailRegularly = () => {
   // 自定发送邮件，每周五上午 7:30 执行一次；
-  schedule.scheduleJob('0 20 8 * * 5', async () => {
+  schedule.scheduleJob('0 20 8 * * 0', async () => {
     try {
       execSendEmailTask()
     } catch (err) {
