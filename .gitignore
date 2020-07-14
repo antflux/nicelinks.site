@@ -7,6 +7,9 @@ server/yarn-debug.log*
 server/src/config/secret.js
 server/upload
 
+# screenshot
+screenshot
+
 # client
 client/node_modules
 client/dist
