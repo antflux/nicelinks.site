@@ -3050,9 +3050,17 @@ process-nextick-args@~2.0.0:
   version "2.0.1"
   resolved "https://registry.npmjs.org/process-nextick-args/-/process-nextick-args-2.0.1.tgz#7820d9b16120cc55ca9ae7792680ae7dba6d7fe2"
 
+"promise-nodeify@>= 0.1":
+  version "3.0.1"
+  resolved "https://registry.npmjs.org/promise-nodeify/-/promise-nodeify-3.0.1.tgz#f0f5d9720ee9ec71dd2bfa92667be504c10229c2"
+
 proto-list@~1.2.1:
   version "1.2.4"
   resolved "https://registry.npmjs.org/proto-list/-/proto-list-1.2.4.tgz#212d5bfe1318306a420f6402b8e26ff39647a849"
+
+"proxying-agent@>= 2.1":
+  version "2.4.0"
+  resolved "https://registry.npmjs.org/proxying-agent/-/proxying-agent-2.4.0.tgz#6796549fc46bf3423554440f64a4449220f9014d"
 
 pseudomap@^1.0.2:
   version "1.0.2"
@@ -3632,6 +3640,13 @@ thenify-all@^1.0.0:
   resolved "https://registry.npmjs.org/thenify/-/thenify-3.3.0.tgz#e69e38a1babe969b0108207978b9f62b88604839"
   dependencies:
     any-promise "^1.0.0"
+
+tinify@^1.6.0-beta.2:
+  version "1.6.0-beta.2"
+  resolved "https://registry.npmjs.org/tinify/-/tinify-1.6.0-beta.2.tgz#5985ca021d11685d846c53ac8465dce78116adfe"
+  dependencies:
+    promise-nodeify ">= 0.1"
+    proxying-agent ">= 2.1"
 
 to-fast-properties@^1.0.3:
   version "1.0.3"
