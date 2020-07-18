@@ -1,18 +1,30 @@
-let path = require('path')
-let cors = require('koa2-cors')
-let json = require('koa-json')
-let views = require('koa-views')
-let convert = require('koa-convert')
-let KoaStatic = require('koa-static')
-let KoaHelmet = require('koa-helmet')
-let KoaMount = require('koa-mount')
-let KoaSession = require('koa-session2')
-let KoaRedis = require('koa-redis')
-let Bodyparser = require('koa-bodyparser')
+const path = require('path')
+const fs = require('fs')
+const cors = require('koa2-cors')
+const json = require('koa-json')
+const views = require('koa-views')
+const convert = require('koa-convert')
+const KoaStatic = require('koa-static')
+const KoaHelmet = require('koa-helmet')
+const KoaMount = require('koa-mount')
+const KoaSession = require('koa-session2')
+const KoaRedis = require('koa-redis')
+const Bodyparser = require('koa-bodyparser')
 
-let bodyparser = Bodyparser()
+const bodyparser = Bodyparser()
 
-let config = require('./../config')
+const config = require('./../config')
+
+const handleGetScreenshot = async (ctx, next) => {
+  await next()
+  const screenshotNameArr = fs.readdirSync(config.main.siteScreenshotDir)
+  const imgName = ctx.request.url.replace('/', '')
+  const isDownload2Local = screenshotNameArr.includes(imgName)
+  const targetImgName = isDownload2Local ? imgName : '/nicelinks.site.png'
+  const filePath = path.join(config.main.siteScreenshotDir, targetImgName)
+  const result = await fs.readFileSync(filePath)
+  ctx.body = result
+}
 
 function applyMiddleware (app) {
   app.use(cors({
@@ -56,6 +68,8 @@ function applyMiddleware (app) {
   })))
 
   app.use(KoaMount('/api/avatar', KoaStatic(config.main.avatarUploadDir)))
+  app.use(KoaMount('/api/screenshot', handleGetScreenshot))
+
 
   // handle views
   app.use(views(path.join(__dirname, '../../views'), {

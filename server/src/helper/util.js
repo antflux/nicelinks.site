@@ -212,7 +212,8 @@ module.exports = {
 			'getProfile',
 			'getRandomSentence',
 			'active',
-			'getSysConf'
+			'getSysConf',
+			'screenshot'
 		]
 		const currentUrl = ctx.request.url
 		let isInIgnoreListFlag = false

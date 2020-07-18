@@ -5,7 +5,8 @@ let HelpController = require('../controllers/helpCtrl')
 let ConfController = require('../controllers/confCtrl')
 let $util = require('../helper/util')
 let fs = require("fs")
-let {join} = require("path")
+
+let config = require('./../config')
 
 const router = Router({
     prefix: '/api'
@@ -34,7 +35,7 @@ router.options('*', async (ctx, next) => {
 })
 
 router.get('/index', async (ctx, next) => {
-  let indexPage = join(__dirname, '../../public/index.html')
+  let indexPage = path.join(__dirname, '../../public/index.html')
   let content = await fs.readFileSync(indexPage, 'utf-8')
   ctx.body = content
 })

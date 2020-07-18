@@ -15,6 +15,9 @@ let config = {
   // Avatar upload path
   'avatarUploadDir': join(__dirname, './../../upload/avatar/'),
 
+  // Screenshot path
+  'siteScreenshotDir': join(__dirname, './../../screenshot/'),
+
   //  Email path
   'clientPath': 'https://nicelinks.site'
 }

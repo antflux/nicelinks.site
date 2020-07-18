@@ -1,8 +1,7 @@
-let fs = require('fs')
-let path = require('path')
+const fs = require('fs')
 const ApiCache = require('./../services/apiCache').ApiCache
 const $util = require('./../helper/util')
-let config = require('./../config')
+const config = require('./../config')
 
 const getServiceWorker = () => {
   let filePath = __dirname + '/../../public/service-worker.js'
