@@ -15,6 +15,9 @@ const bodyparser = Bodyparser()
 
 const config = require('./../config')
 
+/**
+ * @desc: 获取到对应网站的首屏截图；
+ */
 const handleGetScreenshot = async (ctx, next) => {
   await next()
   const screenshotNameArr = fs.readdirSync(config.main.siteScreenshotDir)
@@ -68,8 +71,7 @@ function applyMiddleware (app) {
   })))
 
   app.use(KoaMount('/api/avatar', KoaStatic(config.main.avatarUploadDir)))
-  app.use(KoaMount('/api/screenshot', handleGetScreenshot))
-
+  // app.use(KoaMount('/api/screenshot', handleGetScreenshot))
 
   // handle views
   app.use(views(path.join(__dirname, '../../views'), {

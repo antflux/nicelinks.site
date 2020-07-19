@@ -59,7 +59,7 @@ const settingLoginResult = async (user, ctx) => {
 			await setTokenAndSendMail(user, ctx)
 			return $util.sendFailure(ctx, 'accountNoActive')
 		}
-		const timeOfValidity = 7 * 24 * 3600000
+		const timeOfValidity = 30 * 24 * 3600000
 		const options = {
 			maxAge: timeOfValidity,
 			httpOnly: false
