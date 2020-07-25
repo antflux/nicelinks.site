@@ -109,6 +109,8 @@ const addNiceLinks = async (ctx, next) => {
 			await Actions.create(params).then(res => {
 				$util.sendSuccess(ctx, result)
 			})
+			// 发起截图命令，并压缩，上传至 OSS 桶；
+			$util.startHandleScreenshot(options)
 		})
 	} catch (error) {
 		if (error.code === 11000) {

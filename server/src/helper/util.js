@@ -14,15 +14,15 @@ const path = require('path')
 const mongoSanitize = require('mongo-sanitize')
 const formidable = require('formidable')
 const Url = require('url')
+const { launchScreenshot, tinifyScreenshot, uploadImg2Oss } = require('./screenshot')
 
 const errorMsgConfig = require('./errorMsgConf.js')
 const successMsgConfig = require('./successMsgConf.js')
 const { UserModel } = require('./../models/index')
 const config = require('./../config')
 
-
 // 原有的mongoSanitize不递归过滤
-function mongoSanitizeRecurse(obj) {
+const mongoSanitizeRecurse = (obj) => {
 	mongoSanitize(obj)
 	_.each(obj, v => {
 		if (_.isObject(v)) {
@@ -48,6 +48,18 @@ Date.prototype.Format = function (fmt) {
 		}
 	}
 	return fmt
+}
+
+const waitForTimeout = (delay) => {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      try {
+        resolve(true)
+      } catch (e) {
+        reject(false)
+      }
+    }, delay)
+  })
 }
 
 module.exports = {
@@ -300,5 +312,17 @@ module.exports = {
 				return reject('保存图片失败')
 			}
 		})
+	},
+
+	// 发起截图命令，并压缩，上传至 OSS 桶；@07-25
+	async startHandleScreenshot(params) {
+		try {
+			await launchScreenshot(params)
+			await tinifyScreenshot(params)
+			await waitForTimeout(30000)
+			uploadImg2Oss(params)
+		} catch (error) {
+			console.log(`Something Error @[startHandleScreenshot]`, error)
+		}
 	}
 }
