@@ -1,29 +1,33 @@
-const url = require('url')
-const fs = require('fs')
-const { exec } = require('child_process')
-const { waitForTimeout, requestAllNiceLinks } = require('./utils')
+const { launchScreenshot, tinifyScreenshot, uploadImg2Oss } = require('./../src/helper/screenshot')
 
-const screenshotNameArr = fs.readdirSync(`${process.cwd()}/screenshot/`)
+const targetUrl = process.argv[2]
 
-const screenshot = async () => {
-  const allNiceLinks = await requestAllNiceLinks()
-  console.log(`总获取数据 ${allNiceLinks.value.length} 条`)
-  const needDownloadImgArr = allNiceLinks.value.filter(item => {
-    const hostname = url.parse(item.urlPath).hostname
-    return !screenshotNameArr.includes(`${hostname}.png`)
-  })
-  console.log(`需要截屏共 ${needDownloadImgArr.length} 条`)
+console.log(`开始为 ${targetUrl} 网站截屏 & 压缩并上传.`)
 
-  needDownloadImgArr.forEach(async item => {
-    await waitForTimeout(3000)
-    const hostname = url.parse(item.urlPath).hostname
-    const savepath = `${process.cwd()}/screenshot-new/${hostname}.png`
-    const screenshotCommand = `screenshoteer --url ${item.urlPath} --w 1280 --h 720 --fullpage false --waitfor 50000 --file ${savepath}`
-    exec(screenshotCommand, (error, stdout, stderr) => {
-      console.log(stdout)
-      if (error) return console.error(`✘ Opps, Something Error: ${error}`)
-    })
+const waitForTimeout = delay => {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      try {
+        resolve(true)
+      } catch (e) {
+        reject(false)
+      }
+    }, delay)
   })
 }
 
-screenshot()
+const startHandleScreenshot = async params => {
+  const screenshotCode = await launchScreenshot(params)
+  console.log(screenshotCode)
+  if (screenshotCode === 1) {
+    await tinifyScreenshot(params)
+    await waitForTimeout(3000)
+    uploadImg2Oss(params)
+  } else {
+    console.log(`糟糕😰，发生意外，不能正常为该网站截屏.`)
+  }
+}
+
+startHandleScreenshot({
+  urlPath: targetUrl
+})
