@@ -18,10 +18,9 @@ const waitForTimeout = delay => {
 
 const startHandleScreenshot = async params => {
   const screenshotCode = await launchScreenshot(params)
-  console.log(screenshotCode)
   if (screenshotCode === 1) {
     await tinifyScreenshot(params)
-    await waitForTimeout(3000)
+    await waitForTimeout(50000)
     uploadImg2Oss(params)
   } else {
     console.log(`糟糕😰，发生意外，不能正常为该网站截屏.`)
