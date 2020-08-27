@@ -319,7 +319,7 @@ module.exports = {
 		try {
 			await launchScreenshot(params)
 			await tinifyScreenshot(params)
-			await waitForTimeout(30000)
+			await waitForTimeout(56000)
 			uploadImg2Oss(params)
 		} catch (error) {
 			console.log(`Something Error @[startHandleScreenshot]`, error)

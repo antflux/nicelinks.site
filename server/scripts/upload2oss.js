@@ -18,7 +18,7 @@ console.log(`开始为 ${targetUrl} 网站已生成的截图 & 压缩并上传.`
 
 const startHandleScreenshot = async params => {
   await tinifyScreenshot(params)
-  await waitForTimeout(50000)
+  await waitForTimeout(56000)
   uploadImg2Oss(params)
 }
 
