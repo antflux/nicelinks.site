@@ -13,8 +13,8 @@
     "clean": "rm -rf app/",
     "test": "mocha -u bdd --compilers js:babel-core/register",
     "commit": "git add . && git commit -m '✨ update static flie' && git push",
-    "deploy": "git pull && cross-env NODE_ENV=production pm2 start src/index.js --name 'nicelinks'",
-    "redeploy": "git pull && cross-env NODE_ENV=production pm2 restart src/index.js --name 'nicelinks'"
+    "deploy": "git pull && pm2 start ecosystem.config.js --env production",
+    "redeploy": "git pull && pm2 restart ecosystem.config.js --env production"
   },
   "dependencies": {
     "ali-oss": "^6.10.0",
@@ -30,7 +30,6 @@
     "bcrypt-nodejs": "0.0.3",
     "bluebird": "^3.7.1",
     "cheerio": "^1.0.0-rc.3",
-    "cross-env": "^6.0.3",
     "crypto": "1.0.1",
     "debug": "^4.1.1",
     "ejs": "^2.7.1",
