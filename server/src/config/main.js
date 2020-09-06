@@ -22,7 +22,7 @@ let config = {
   'clientPath': 'https://nicelinks.site'
 }
 
-if (process.env.NODE_ENV && process.env.NODE_ENV !== 'production') {
+if (process.env.NODE_ENV && process.env.NODE_ENV === 'development') {
   config.env = 'development'
   config.clientPath = 'http://localhost:8888'
 }
