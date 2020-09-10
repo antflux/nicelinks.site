@@ -12,6 +12,10 @@ const sitemapTempStr = `
   <url><loc>https://nicelinks.site/explore/info/</loc></url>
   <url><loc>https://nicelinks.site/collections/theme/</loc></url>
   <url><loc>https://nicelinks.site/collections/tags/</loc></url>
+  <url><loc>https://nicelinks.site/about/</loc></url>
+  <url><loc>https://nicelinks.site/business/</loc></url>
+  <url><loc>https://nicelinks.site/sponsor/</loc></url>
+  <url><loc>https://nicelinks.site/member/admin/</loc></url>
   #PLACEHOLDER#
 </urlset>`
 
