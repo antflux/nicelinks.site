@@ -34,7 +34,11 @@ const getNiceLinks = async (ctx, next) => {
 	// 默认只拉去已经审核通过的链接;
 	let params = { active: true }
 	let sortParam = {}
-
+	
+	// 查询产品链接是否还活着（处于兼容考虑：没传递默认无需此条件）；
+	if (options.alive) {
+		params.alive = options.alive === '1'
+	}
 	options.classify ? params.classify = options.classify : ''
 	options._id ? params._id = options._id : ''
 	options.sortTarget ? sortParam[options.sortTarget] = options.sortType : ''
