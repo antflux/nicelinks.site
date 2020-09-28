@@ -5,9 +5,9 @@ const requestAllNiceLinks = () => {
     const requestUrl = 'https://nicelinks.site/api/getNiceLinks'
     const params = {
       pageCount: 1,
-      pageSize: 400,
-      sortType: -1,
-      sortTarget: 'likes',
+      pageSize: 1000,
+      sortType: 1,
+      sortTarget: 'created',
       active: true
     }
     return axios.get(requestUrl, { params }).then((result) => {

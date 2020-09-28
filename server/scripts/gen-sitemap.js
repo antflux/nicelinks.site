@@ -16,6 +16,29 @@ const sitemapTempStr = `
   <url><loc>https://nicelinks.site/business/</loc></url>
   <url><loc>https://nicelinks.site/sponsor/</loc></url>
   <url><loc>https://nicelinks.site/member/admin/</loc></url>
+  <url><loc>https://nicelinks.site/theme/program/</loc></url>
+  <url><loc>https://nicelinks.site/theme/design/</loc></url>
+  <url><loc>https://nicelinks.site/theme/search/</loc></url>
+  <url><loc>https://nicelinks.site/theme/tools/</loc></url>
+  <url><loc>https://nicelinks.site/theme/books/</loc></url>
+  <url><loc>https://nicelinks.site/theme/community/</loc></url>
+  <url><loc>https://nicelinks.site/theme/forum/</loc></url>
+  <url><loc>https://nicelinks.site/theme/product/</loc></url>
+  <url><loc>https://nicelinks.site/theme/picture/</loc></url>
+  <url><loc>https://nicelinks.site/theme/icons/</loc></url>
+  <url><loc>https://nicelinks.site/theme/typeface/</loc></url>
+  <url><loc>https://nicelinks.site/theme/interesting/</loc></url>
+  <url><loc>https://nicelinks.site/theme/travel/</loc></url>
+  <url><loc>https://nicelinks.site/theme/diary/</loc></url>
+  <url><loc>https://nicelinks.site/theme/find/</loc></url>
+  <url><loc>https://nicelinks.site/theme/colligate/</loc></url>
+  <url><loc>https://nicelinks.site/theme/technology/</loc></url>
+  <url><loc>https://nicelinks.site/theme/education/</loc></url>
+  <url><loc>https://nicelinks.site/theme/jobs/</loc></url>
+  <url><loc>https://nicelinks.site/theme/history/</loc></url>
+  <url><loc>https://nicelinks.site/theme/humanity/</loc></url>
+  <url><loc>https://nicelinks.site/theme/entertainment/</loc></url>
+  <url><loc>https://nicelinks.site/theme/religion</loc></url>
   #PLACEHOLDER#
 </urlset>`
 
