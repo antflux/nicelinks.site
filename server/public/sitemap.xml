@@ -172,7 +172,12 @@
 	</url>
 	<url>
 		<loc>
-			https://nicelinks.site/theme/religion
+			https://nicelinks.site/theme/religion/
+		</loc>
+	</url>
+	<url>
+		<loc>
+			https://nicelinks.site/cemetery/
 		</loc>
 	</url>
 	<url>
@@ -2188,6 +2193,36 @@
 	<url>
 		<loc>
 			https://nicelinks.site/post/5f71ea771014540380787905
+		</loc>
+	</url>
+	<url>
+		<loc>
+			https://nicelinks.site/post/5f75ea02cda9de27bd93a919
+		</loc>
+	</url>
+	<url>
+		<loc>
+			https://nicelinks.site/post/5f7ed5c6cda9de27bd93a91d
+		</loc>
+	</url>
+	<url>
+		<loc>
+			https://nicelinks.site/post/5f804ac6cda9de27bd93a91f
+		</loc>
+	</url>
+	<url>
+		<loc>
+			https://nicelinks.site/post/5f819f32cda9de27bd93a922
+		</loc>
+	</url>
+	<url>
+		<loc>
+			https://nicelinks.site/post/5f86ec6ecda9de27bd93a925
+		</loc>
+	</url>
+	<url>
+		<loc>
+			https://nicelinks.site/post/5f86fe3ccda9de27bd93a927
 		</loc>
 	</url>
 </urlset>

@@ -38,7 +38,8 @@ const sitemapTempStr = `
   <url><loc>https://nicelinks.site/theme/history/</loc></url>
   <url><loc>https://nicelinks.site/theme/humanity/</loc></url>
   <url><loc>https://nicelinks.site/theme/entertainment/</loc></url>
-  <url><loc>https://nicelinks.site/theme/religion</loc></url>
+  <url><loc>https://nicelinks.site/theme/religion/</loc></url>
+  <url><loc>https://nicelinks.site/cemetery/</loc></url>
   #PLACEHOLDER#
 </urlset>`
 
