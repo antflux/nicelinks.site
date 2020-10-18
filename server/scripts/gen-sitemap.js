@@ -39,6 +39,13 @@ const sitemapTempStr = `
   <url><loc>https://nicelinks.site/theme/humanity/</loc></url>
   <url><loc>https://nicelinks.site/theme/entertainment/</loc></url>
   <url><loc>https://nicelinks.site/theme/religion/</loc></url>
+  <url><loc>https://nicelinks.site/tags/AI</loc></url>
+  <url><loc>https://nicelinks.site/tags/CDN/</loc></url>
+  <url><loc>https://nicelinks.site/tags/CSS/</loc></url>
+  <url><loc>https://nicelinks.site/tags/PDF/</loc></url>
+  <url><loc>https://nicelinks.site/tags/Git/</loc></url>
+  <url><loc>https://nicelinks.site/tags/Svg/</loc></url>
+  <url><loc>https://nicelinks.site/tags/PPT/</loc></url>
   <url><loc>https://nicelinks.site/cemetery/</loc></url>
   #PLACEHOLDER#
 </urlset>`
