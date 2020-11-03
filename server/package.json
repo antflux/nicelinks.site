@@ -55,7 +55,7 @@
     "koa-views": "^6.2.1",
     "koa2-cors": "^2.0.6",
     "link-check": "^4.5.2",
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.19",
     "mongo-sanitize": "^1.0.1",
     "mongoose": "^5.7.5",
     "node-schedule": "^1.3.2",
