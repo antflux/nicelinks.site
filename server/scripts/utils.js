@@ -8,6 +8,7 @@ const requestAllNiceLinks = () => {
       pageSize: 1000,
       sortType: 1,
       sortTarget: 'created',
+      alive: 1,
       active: true
     }
     return axios.get(requestUrl, { params }).then((result) => {
