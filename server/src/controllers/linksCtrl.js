@@ -30,7 +30,9 @@ const getAllActiveLinks = (params = {}) => {
 
 const updateLinkVisitCountUp = (params = {}) => {
 	const options = { countup: params.countup + 1 }
-	Links.update({ '_id': params._id }, { $set: options })
+	Links.update({ '_id': params._id }, { $set: options }).then(() => {
+		console.log(`Id 为 ${params._id} 的 countup 已经更新`)
+	})
 }
 /*------------------------------api---------------------------*/
 
