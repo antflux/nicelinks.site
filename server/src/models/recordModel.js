@@ -3,6 +3,9 @@ let mongoose = require('mongoose'),
 
 mongoose.Promise = global.Promise
 
+/**
+ * @desc: 用以记录有多少人注册，从而使得每新注册用户，快速知道是第几位「倾城er」
+ */
 const RecordSchema = new Schema({
   key: {
     type: String,

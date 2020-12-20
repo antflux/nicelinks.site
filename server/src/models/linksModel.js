@@ -1,5 +1,4 @@
 let mongoose = require('mongoose'),
-    Schema = mongoose.Schema,
     ObjectId = mongoose.Schema.ObjectId
 
 /* Solve Problem: (node) DeprecationWarning:
@@ -75,6 +74,10 @@ const LinksSchema = new mongoose.Schema({
     alive: {
         type: Boolean,
         default: true,
+    },
+    countup: {
+        type: Number,
+        default: 29
     },
     created: {
         type: Date,

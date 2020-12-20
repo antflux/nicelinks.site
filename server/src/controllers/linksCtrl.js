@@ -27,6 +27,11 @@ const getAllActiveLinks = (params = {}) => {
 		})
 	})
 }
+
+const updateLinkVisitCountUp = (params = {}) => {
+	const options = { countup: params.countup + 1 }
+	Links.update({ '_id': params._id }, { $set: options })
+}
 /*------------------------------api---------------------------*/
 
 const getNiceLinks = async (ctx, next) => {
@@ -52,6 +57,9 @@ const getNiceLinks = async (ctx, next) => {
 			.limit(limitNumber)
 			.skip(skipNumber)
 			.exec().then(async (result) => {
+				// 倘若是单个 Link 请求，则更新该 Link 的访问统计数量 @2020.12.20；
+				if (options._id) updateLinkVisitCountUp(result[0])
+
 				if (options.userId) {
 					let idArr = result.map(item => {
 						return item._id
