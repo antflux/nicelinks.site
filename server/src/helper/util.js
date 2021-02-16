@@ -287,14 +287,13 @@ module.exports = {
 		return new Promise((resolve, reject) => {
 			const form = formidable.IncomingForm()
 			form.uploadDir = config.main.avatarUploadDir
-			console.log(form.uploadDir)
 			try {
 				form.parse(req, async (err, fields, files) => {
-					console.log(err, fields, files)
 					const fullName = imgName + path.extname(files.file.name)
-					const repath = config.main.avatarUploadDir + fullName
-					await fs.rename(files.file.path, repath)
 					return resolve(fullName)
+					// const repath = config.main.avatarUploadDir + fullName
+					// await fs.rename(files.file.path, repath)
+					
 					/*gm(repath)
 					.resize(200, 200, "!")
 					.write(repath, async (err) => {
